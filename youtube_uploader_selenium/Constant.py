@@ -21,7 +21,12 @@ class Constant:
     NOT_MADE_FOR_KIDS_LABEL = 'NOT_MADE_FOR_KIDS'
 
     NEXT_BUTTON = 'next-button'
+
+    VISIBILITY_METADATA_KEY = 'visibility'
+    PRIVATE_BUTTON = 'PRIVATE'
+    UNLISTED_BUTTON = 'UNLISTED'
     PUBLIC_BUTTON = 'PUBLIC'
+
     VIDEO_URL_CONTAINER = "//span[@class='video-url-fadeable style-scope ytcp-video-info']"
     VIDEO_URL_ELEMENT = "//a[@class='style-scope ytcp-video-info']"
     HREF = 'href'

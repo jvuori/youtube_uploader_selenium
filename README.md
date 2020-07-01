@@ -54,9 +54,12 @@ An example JSON file would be:
 {
   "title": "Best Of James Harden | 2019-20 NBA Season",
   "description": "Check out the best of James Harden's 2019-20 season so far!",
-  "made_for_kids": true
+  "made_for_kids": true,
+  "visibility": "public"
 }
 ```
+
+Value for "visibility" is either "private", "unlisted" or "public". Default is "public".
 
 ## Dependencies
 * geckodriver

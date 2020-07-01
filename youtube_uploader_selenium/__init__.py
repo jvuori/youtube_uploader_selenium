@@ -40,6 +40,10 @@ class YouTubeUploader:
             self.logger.warning("The video title was set to {}".format(Path(self.video_path).stem))
         if not self.metadata_dict[Constant.VIDEO_DESCRIPTION]:
             self.logger.warning("The video description was not found in a metadata file")
+        if not self.metadata_dict[Constant.VISIBILITY_METADATA_KEY]:
+            self.logger.warning("The video visibility was not found in a metadata file")
+            self.metadata_dict[Constant.VISIBILITY_METADATA_KEY] = "public"
+            self.logger.warning('The video visibility was set to "public".')
 
     def upload(self):
         try:
@@ -110,9 +114,9 @@ class YouTubeUploader:
         self.browser.find(By.ID, Constant.NEXT_BUTTON).click()
         self.logger.debug('Clicked another {}'.format(Constant.NEXT_BUTTON))
 
-        public_main_button = self.browser.find(By.NAME, Constant.PUBLIC_BUTTON)
-        self.browser.find(By.ID, Constant.RADIO_LABEL, public_main_button).click()
-        self.logger.debug('Made the video {}'.format(Constant.PUBLIC_BUTTON))
+        visibility_button = self.browser.find(By.NAME, self.metadata_dict[Constant.VISIBILITY_METADATA_KEY].upper())
+        self.browser.find(By.ID, Constant.RADIO_LABEL, visibility_button).click()
+        self.logger.debug('Made the video {}'.format(self.metadata_dict[Constant.VISIBILITY_METADATA_KEY].upper()))
 
         video_id = self.__get_video_id()
 
