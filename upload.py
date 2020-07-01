@@ -9,7 +9,7 @@ def main(video_path: str, metadata_path: Optional[str] = None):
     assert was_video_uploaded
 
 
-if __name__ == "__main__":
+def cli_main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--video",
                         help='Path to the video file',
@@ -17,3 +17,7 @@ if __name__ == "__main__":
     parser.add_argument("--meta", help='Path to the JSON file with metadata')
     args = parser.parse_args()
     main(args.video, args.meta)
+
+
+if __name__ == "__main__":
+    cli_main()
