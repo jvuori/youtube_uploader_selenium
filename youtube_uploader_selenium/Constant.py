@@ -15,7 +15,11 @@ class Constant:
     RADIO_LABEL = 'radioLabel'
     STATUS_CONTAINER = '/html/body/ytcp-uploads-dialog/paper-dialog/div/ytcp-animatable[2]/' \
                        'div/div[1]/ytcp-video-upload-progress/span'
+
+    MADE_FOR_KIDS_METADATA_KEY = 'made_for_kids'
+    MADE_FOR_KIDS_LABEL = 'MADE_FOR_KIDS'
     NOT_MADE_FOR_KIDS_LABEL = 'NOT_MADE_FOR_KIDS'
+
     NEXT_BUTTON = 'next-button'
     PUBLIC_BUTTON = 'PUBLIC'
     VIDEO_URL_CONTAINER = "//span[@class='video-url-fadeable style-scope ytcp-video-info']"

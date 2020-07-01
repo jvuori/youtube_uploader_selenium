@@ -96,9 +96,13 @@ class YouTubeUploader:
             self.logger.debug(
                 'The video description was set to \"{}\"'.format(self.metadata_dict[Constant.VIDEO_DESCRIPTION]))
 
-        kids_section = self.browser.find(By.NAME, Constant.NOT_MADE_FOR_KIDS_LABEL)
+        if self.metadata_dict[Constant.MADE_FOR_KIDS_METADATA_KEY]:
+            kids_section_label = Constant.MADE_FOR_KIDS_LABEL
+        else:
+            kids_section_label = Constant.NOT_MADE_FOR_KIDS_LABEL
+        kids_section = self.browser.find(By.NAME, kids_section_label)
         self.browser.find(By.ID, Constant.RADIO_LABEL, kids_section).click()
-        self.logger.debug('Selected \"{}\"'.format(Constant.NOT_MADE_FOR_KIDS_LABEL))
+        self.logger.debug('Selected \"{}\"'.format(kids_section_label))
 
         self.browser.find(By.ID, Constant.NEXT_BUTTON).click()
         self.logger.debug('Clicked {}'.format(Constant.NEXT_BUTTON))
